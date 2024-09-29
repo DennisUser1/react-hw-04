@@ -14,6 +14,22 @@ export default function ImageModal ({ isOpen, image, closeModal }) {
         ? image.alt_description.charAt(0).toUpperCase() + image.alt_description.slice(1).toLowerCase()
         : "No description available";
 
+    const toggleFullscreen = (img) => {
+        if (document.fullscreenElement) {
+                document.exitFullscreen();
+        } else {
+                if (img.requestFullscreen) {
+                    img.requestFullscreen();
+                } else if (img.mozRequestFullScreen) { // Firefox
+                    img.mozRequestFullScreen();
+                } else if (img.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                    img.webkitRequestFullscreen();
+                } else if (img.msRequestFullscreen) { // IE/Edge
+                    img.msRequestFullscreen();
+                }
+        };
+    };
+
     return (
         <Modal
             isOpen={isOpen}
@@ -30,6 +46,7 @@ export default function ImageModal ({ isOpen, image, closeModal }) {
                     className={styles.image}
                     src={image.urls.regular}
                     alt={image.alt_description}
+                    onClick={(e) => toggleFullscreen(e.currentTarget)}
                 />
                 <ul className={styles.listInfoModal}>
                     <li className={`${styles.item} ${styles.authorInfo}`}>

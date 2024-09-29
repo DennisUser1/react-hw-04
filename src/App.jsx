@@ -31,6 +31,9 @@ export default function App() {
             try {
                 setIsLoading(true);
                 setIsError(false);
+                if (currentPage == 1) {
+                    setImageResults([]);
+                }
         
                 const data = await fetchImagesBySearchValue(searchQuery, currentPage);
         
