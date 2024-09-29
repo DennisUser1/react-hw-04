@@ -29,42 +29,48 @@
 }
   
 .image {
-    display: flex;
+    display: block;
     align-items: center;
     margin-bottom: 16px;
     border-radius: 1%; 
+    width: 100%; 
+    height: auto;
 }
 
 .listInfoModal {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    padding: 0 30px 0 30px;
+    gap: 8px; 
+    max-width: 100%; 
     text-align: start;
-    gap: 4px;
 }
 
 .item {
-    display: flex; 
-    align-items: center; 
-    font-size: 16px;
-    gap: 8px; 
+    width: auto; 
+    flex-basis: calc(50% - 16px); 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
 }
 
 .authorInfo {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 100%;
     margin-bottom: 10px;
+    position: relative;
 }
-  
+
 .authorInfo img {
-    border-radius: 50%; 
-    width: 40px; 
-    height: 40px;
-    position: relative; 
-    z-index: 1; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    z-index: 1;
 }
 
 .authorInfo::before {
@@ -72,13 +78,13 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 60px; 
-    height: 60px; 
-    background: var(--color-dark-purple); 
-    border-radius: 50%; 
-    transform: translate(-50%, -50%) scale(0.8); 
-    animation: pulse 4s infinite; 
-    z-index: 0; 
+    width: 70px;
+    height: 70px;
+    background: var(--color-dark-purple);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    animation: pulse 4s infinite;
+    z-index: 0;
 }
 
 @keyframes pulse {
@@ -127,6 +133,7 @@ span {
         align-items: flex-start;
         justify-content: center;
         gap: 4px;
+        padding: 0;
     }
 
     .authorInfo {
@@ -154,6 +161,7 @@ span {
         align-items: flex-start;
         justify-content: center;
         gap: 4px;
+        padding: 0;
     }   
     
     .authorInfo {
@@ -168,6 +176,10 @@ span {
         height: 60px; 
         font-size: 36px;
     } 
+
+    .item {
+        font-size: 18px;
+    }
 }
 
 /* Styles scrollbar (Chrome, Safari) */

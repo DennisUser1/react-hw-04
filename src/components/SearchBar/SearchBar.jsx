@@ -20,7 +20,7 @@ export default function SearchBar({ onSearch }) {
                 <Form className={styles.form}>
                     <button type="submit" className={styles.searchButton}>
                         <IoSearch size="16"/>
-                         <p>Search</p>
+                        Search
                     </button>
                     <Field
                         name="search"
@@ -29,6 +29,7 @@ export default function SearchBar({ onSearch }) {
                         autoFocus
                         placeholder="Search images and photos"
                         className={styles.searchField}
+                        aria-label="Search images and photos"
                     />
                 </Form>
             </Formik>
